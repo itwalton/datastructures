@@ -80,6 +80,22 @@ var DoubleLinkedList = (function () {
         newLink.next = currentLink;
     };
     ;
+    DoubleLinkedList.prototype.reverse = function () {
+        var temp = null;
+        var current = this.firstLink;
+        while (current !== null) {
+            console.log(current.toString());
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+            console.log(current);
+        }
+        if (temp !== null) {
+            this.firstLink = temp.prev;
+        }
+    };
+    ;
     DoubleLinkedList.prototype.toString = function () {
         var str = "";
         var link = this.firstLink;
@@ -104,6 +120,9 @@ var DoubleLinkedList = (function () {
     doubleLinkedList.insertAfterKey(1, 2);
     doubleLinkedList.insertInOrder(3);
     doubleLinkedList.insertInOrder(4);
+    console.log(doubleLinkedList.toString());
+    console.log("********");
+    doubleLinkedList.reverse();
     console.log(doubleLinkedList.toString());
 })();
 module.exports.Link = Link;

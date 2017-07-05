@@ -188,6 +188,17 @@ class BinaryTree {
       console.log(focusLeaf.toString());
     }
   };
+
+  public reverse(focusLeaf: Leaf): void {
+    if (focusLeaf !== null) {
+      const temp = focusLeaf.leftChild;
+      focusLeaf.leftChild = focusLeaf.rightChild;
+      focusLeaf.rightChild = temp;
+
+      this.reverse(focusLeaf.leftChild);
+      this.reverse(focusLeaf.rightChild);
+    }
+  };
 }
 
 // main
@@ -201,23 +212,28 @@ class BinaryTree {
   binaryTree.addLeaf(75, "Jarry");
   binaryTree.addLeaf(85, "Joel");
 
+  binaryTree.inOrderTraverseTree(binaryTree.root);
+  binaryTree.reverse(binaryTree.root);
+  console.log("***********");
+  binaryTree.inOrderTraverseTree(binaryTree.root);
+
   // binaryTree.inOrderTraverseTree(binaryTree.root);
   // binaryTree.preOrderTraverseTree(binaryTree.root);
   // binaryTree.postOrderTraverseTree(binaryTree.root);
 
   // console.log(binaryTree.findLeaf(15).toString());
 
-  binaryTree.preOrderTraverseTree(binaryTree.root);
-  console.log("************");
-  binaryTree.remove(15);
-  binaryTree.preOrderTraverseTree(binaryTree.root);
-  console.log("************");
-  binaryTree.remove(25);
-  binaryTree.preOrderTraverseTree(binaryTree.root);
-  console.log("************");
-  binaryTree.remove(75);
-  binaryTree.preOrderTraverseTree(binaryTree.root);
-  console.log("************");
-  binaryTree.remove(50);
-  binaryTree.preOrderTraverseTree(binaryTree.root);
+  // binaryTree.preOrderTraverseTree(binaryTree.root);
+  // console.log("************");
+  // binaryTree.remove(15);
+  // binaryTree.preOrderTraverseTree(binaryTree.root);
+  // console.log("************");
+  // binaryTree.remove(25);
+  // binaryTree.preOrderTraverseTree(binaryTree.root);
+  // console.log("************");
+  // binaryTree.remove(75);
+  // binaryTree.preOrderTraverseTree(binaryTree.root);
+  // console.log("************");
+  // binaryTree.remove(50);
+  // binaryTree.preOrderTraverseTree(binaryTree.root);
 })();
