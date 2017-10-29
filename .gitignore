@@ -1,11 +1,3 @@
-# IDE Generated Files
-java/.idea/*
-
-# Binaries
-java/build/
-
-# Dependency Management
-java/.gradle/
-java/gradle/
-
+# Compiled files
+*.js
 
